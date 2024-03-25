@@ -1,11 +1,19 @@
 import reflex as rx
+from reflex_simpleicons import simpleicons
+
+
+def sidebar_header() -> rx.Component:
+    return rx.flex(
+        rx.box(simpleicons("GitHub",brand_color=True, size=24)),
+        rx.heading("AlTeslaDev"),
+        spacing="2"
+    )
 
 
 
-def sidebar():
+def sidebar() -> rx.Component:
     return rx.vstack(
-        rx.image(src="/favicon.ico", width="3em"),
-        rx.heading("Sidebar", margin_bottom="1em"),
+        sidebar_header(),
         position="fixed",
         height="100%",
         left="0px",
