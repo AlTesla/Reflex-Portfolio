@@ -10,10 +10,73 @@ def sidebar_header() -> rx.Component:
     )
 
 
+def sidebar_item(text: str, ico: str, url: str) -> rx.Component:
+    return rx.link(
+        rx.hstack(
+            rx.icon(ico),
+            rx.text(text, weight='bold'),
+        ),
+        href=url,
+        color_scheme='gray'
+    )
+
+def sidebar_menu() -> rx.Component:
+    return rx.hstack(
+        rx.chakra.accordion(
+            rx.chakra.accordion_item(
+                rx.chakra.accordion_button(
+                    rx.hstack(
+                        rx.icon("layers", color_scheme="gray"),
+                        rx.text("Projects", weight="bold", color_scheme="gray"),
+                    ),
+                        
+                    rx.chakra.accordion_icon(),
+                ),
+                rx.chakra.accordion_panel(
+                    rx.chakra.text(
+                        "This is an example of an accordion component."
+                    )
+                ),
+            ),
+            rx.chakra.accordion_item(
+                rx.chakra.accordion_button(
+                    rx.hstack(
+                        rx.icon("history", color_scheme="gray"),
+                        rx.text("Projects", weight="bold", color_scheme="gray"),   
+                    ),
+                    rx.chakra.accordion_icon(),
+                ),
+                rx.chakra.accordion_panel(
+                    rx.chakra.text(
+                    "This is an example of an accordion component."
+                   )
+                ),
+            ),
+        )
+    )
+
 
 def sidebar() -> rx.Component:
     return rx.vstack(
         sidebar_header(),
+        rx.html("<hr>"),
+        sidebar_item(
+            "Welcome", 
+            "home",
+            "/"
+        ),
+        sidebar_item(
+            "Dashboard", 
+            "bar-chart-3",
+            "/"
+        ),
+        sidebar_item(
+            "Contact", 
+            "mail",
+            "/"
+        ),
+        sidebar_menu(),
+
         position="fixed",
         height="100%",
         left="0px",
