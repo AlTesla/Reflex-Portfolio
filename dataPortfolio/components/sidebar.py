@@ -6,7 +6,9 @@ def sidebar_header() -> rx.Component:
     return rx.flex(
         rx.box(simpleicons("GitHub",brand_color=True, size=24)),
         rx.heading("AlTeslaDev"),
-        spacing="2"
+        spacing="2",
+        padding_bottom="1em"
+        
     )
 
 
@@ -31,10 +33,16 @@ def sidebar_menu() -> rx.Component:
                     ),
                         
                     rx.chakra.accordion_icon(),
+                    padding_left="0"
                 ),
                 rx.chakra.accordion_panel(
-                    rx.chakra.text(
-                        "This is an example of an accordion component."
+                    rx.vstack(
+                        rx.link(
+                            rx.text("Pokedata"),
+                            href="/",
+                            color_scheme="gray"
+
+                        )
                     )
                 ),
             ),
@@ -42,9 +50,10 @@ def sidebar_menu() -> rx.Component:
                 rx.chakra.accordion_button(
                     rx.hstack(
                         rx.icon("history", color_scheme="gray"),
-                        rx.text("Projects", weight="bold", color_scheme="gray"),   
+                        rx.text("Recent", weight="bold", color_scheme="gray"),   
                     ),
                     rx.chakra.accordion_icon(),
+                    padding_left="0"
                 ),
                 rx.chakra.accordion_panel(
                     rx.chakra.text(
@@ -56,10 +65,11 @@ def sidebar_menu() -> rx.Component:
     )
 
 
+
+
 def sidebar() -> rx.Component:
     return rx.vstack(
         sidebar_header(),
-        rx.html("<hr>"),
         sidebar_item(
             "Welcome", 
             "home",
