@@ -65,11 +65,34 @@ def sidebar_menu() -> rx.Component:
     )
 
 
+def sidebar_footer() -> rx.Component:
+    return rx.vstack(
+        rx.link(
+            rx.hstack(
+                rx.icon("github"),
+                rx.text("GitHub", weight='bold'),
+            ), 
+            href="https://github.com/AlTesla",
+            color_scheme='gray',
+            is_external=True
+        ),
+        rx.link(
+            rx.hstack(
+                rx.icon("linkedin"),
+                rx.text("LinkedIn", weight="bold"),
+            ),
+            href="https://www.linkedin.com/in/alvaro-corona/",
+            color_scheme='gray',
+            is_external=True
+        )
+    )
+
 
 
 def sidebar() -> rx.Component:
     return rx.vstack(
         sidebar_header(),
+        rx.divider(),
         sidebar_item(
             "Welcome", 
             "home",
@@ -85,7 +108,10 @@ def sidebar() -> rx.Component:
             "mail",
             "/"
         ),
+        rx.divider(),
         sidebar_menu(),
+
+        sidebar_footer(),
 
         position="fixed",
         height="100%",
