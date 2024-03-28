@@ -90,33 +90,39 @@ def sidebar_footer() -> rx.Component:
 
 
 def sidebar() -> rx.Component:
-    return rx.vstack(
-        sidebar_header(),
-        rx.divider(),
-        sidebar_item(
-            "Welcome", 
-            "home",
-            "/"
-        ),
-        sidebar_item(
-            "Dashboard", 
-            "bar-chart-3",
-            "/"
-        ),
-        sidebar_item(
-            "Contact", 
-            "mail",
-            "/"
-        ),
-        rx.divider(),
-        sidebar_menu(),
+    return rx.box(
+        rx.vstack(
+            sidebar_header(),
+            rx.divider(),
+            rx.vstack(
+                sidebar_item(
+                    "Welcome", 
+                    "home",
+                    "/"
+                ),
+                sidebar_item(
+                    "Dashboard", 
+                    "bar-chart-3",
+                    "/"
+                ),
+                sidebar_item(
+                    "Contact", 
+                    "mail",
+                    "/"
+                ),
+                sidebar_menu(),
+            ),
+            rx.divider(),
+            rx.spacer(),
+            sidebar_footer(),
+            height="100dvh"
 
-        sidebar_footer(),
+        ),
         
         background_color="lightgray",
         align_items="left",
-        min_width="20em",
-        hight="200%",
+        min_width="15em",
+        height="100%",
         position="sticky",
         top="0px",
         border_right="1px solid #F4F3F6",
