@@ -51,7 +51,7 @@ def landing() -> rx.Component:
 
 def summary() -> rx.Component:
     return rx.box(    
-        rx.section(
+        rx.vstack(
             rx.heading("About me", as_="h2"),
             rx.text(
                 """I'm an Aerospace Engineer and Data Analyst based in Tijuana, Mexico. 
@@ -76,16 +76,17 @@ def summary() -> rx.Component:
 def skills_links() -> rx.Component:
     return rx.box(
         rx.vstack(
-            rx.section(
+            rx.vstack(
                 rx.heading("Skills", as_="h2"),
                 rx.flex(
                     rx.card("Data Viz"),
                     rx.card("Data Integration"),
                     rx.card("3d Modeling"), 
-                    rx.card("3d Printing")
+                    rx.card("3d Printing"),
+                    spacing='4'
                 )
             ),
-            rx.section(
+            rx.vstack(
                 rx.fragment(
                     rx.heading("Location", as_="h3", size="4"),
                     rx.text("Tijuana, Baja California")
@@ -98,8 +99,7 @@ def skills_links() -> rx.Component:
                     rx.heading("Linked In", as_="h3", size="4"),
                     rx.text("alvaro-corona")
                 )
-
-            )
+            ),
         )
 
     )
@@ -117,6 +117,7 @@ def experience() -> rx.Component:
                 spacing='2'
             )
         ),
+        rx.spacer(),
         rx.card(
             rx.vstack(
                 rx.hstack(
@@ -126,7 +127,21 @@ def experience() -> rx.Component:
                 rx.text("Total Play"),
                 spacing='2'
             )
-        )
+        ),
+        rx.spacer(),
+        rx.card(
+            rx.vstack(
+                rx.hstack(
+                    rx.icon("cog"),
+                    rx.heading("Maintenance Manager", as_="h3", size="4")
+                ),
+                rx.text("Soriana"),
+                spacing='2'
+            )
+            
+        ),
+        width="100%",
+        padding="2em"
     )
 
 
@@ -140,7 +155,8 @@ def index() -> rx.Component:
             rx.hstack(
                 summary(),
                 rx.spacer(),
-                skills_links()
+                skills_links(),
+                padding="2em"
             ),
             experience()
         )
