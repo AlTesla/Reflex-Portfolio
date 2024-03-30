@@ -103,7 +103,32 @@ def skills_links() -> rx.Component:
         )
 
     )
-                
+
+
+def experience() -> rx.Component:
+    return rx.flex(
+        rx.card(
+            rx.vstack(
+                rx.hstack(
+                    rx.icon("rocket"),
+                    rx.heading("Product Desing Engineer", as_="h3", size="4")
+                    ),
+                rx.text("LP Bond"),
+                spacing='2'
+            )
+        ),
+        rx.card(
+            rx.vstack(
+                rx.hstack(
+                    rx.icon("satellite-dish"),
+                    rx.heading("Quality Inspector", as_="h3", size="4")
+                ),
+                rx.text("Total Play"),
+                spacing='2'
+            )
+        )
+    )
+
 
 @rx.page(route="/index", title="Home")
 def index() -> rx.Component:
@@ -116,7 +141,7 @@ def index() -> rx.Component:
                 summary(),
                 rx.spacer(),
                 skills_links()
-            )
-            
+            ),
+            experience()
         )
     )
