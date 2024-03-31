@@ -39,7 +39,7 @@ def sidebar_menu() -> rx.Component:
                     rx.vstack(
                         rx.link(
                             rx.text("Pokedata"),
-                            href="/",
+                            href="/pokedata",
                             color_scheme="gray"
 
                         )
@@ -118,8 +118,6 @@ def sidebar() -> rx.Component:
             height="100dvh"
 
         ),
-        
-        background_color="lightgray",
         align_items="left",
         min_width="15em",
         height="100%",

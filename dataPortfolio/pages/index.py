@@ -145,7 +145,7 @@ def experience() -> rx.Component:
     )
 
 
-@rx.page(route="/index", title="Home")
+@rx.page(route="/index", title="Landing")
 def index() -> rx.Component:
     return rx.hstack(
         sidebar(),
