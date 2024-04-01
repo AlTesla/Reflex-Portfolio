@@ -12,15 +12,23 @@ def dataframe():
     return poke_frame
 
 
+class PokeState(rx.State):
+    gens: list[str] = ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th']
+    selected_gen: str 
+
+
+
 def gen_selector() -> rx.Component:
-    poke_gen = ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th']
     return rx.card(
         rx.flex(
             simpleicons(tag="pokémon", brand_color=True, size= 128),
-            rx.select(poke_gen, 
+            rx.select(PokeState.gens, 
                 placeholder="Selection of Generation",
                 label="Generation",
+                on_change=PokeState.set_selected_gen,
+                value=PokeState.selected_gen,
                 ),
+            rx.text(PokeState.selected_gen.to_string()),
             direction='column'
         )
     )
