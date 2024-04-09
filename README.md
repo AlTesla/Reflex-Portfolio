@@ -1,3 +1,5 @@
 # This is my portfolio
 
-#### I'm Alvaro Corona I was born and raised in Tijuana Mexico. I went to the State University to get a bachellor degre in AeroSpace Engineering, and I did a certification as a Data Analyst by Monterrey Institute of Technology.
+I'm Alvaro Corona I was born and raised in Tijuana Mexico. I went to the Baja California State University to get a bachellor degre in AeroSpace Engineering, and I did a certification as a Data Analyst by Monterrey Institute of Technology.
+
+This is my personal web page where I tend to show my programing skills, I started coding when I was at college, my first programing language was C++ which one gives the basics, then I tried by my self a little bit of c# for game development I code some of my fisics exercises and I learnt how to code son maths and show patterns of move using the fisics theorems, at college I also learn matlab, I use used it to solve son mathmatical probles using numerical methods, and also simulate some electronic circuits. then I had to learn somthing about arduino and did code for some electronics projects like a CANSAT, I intruduced my self in couple of drone projects I crafted a couple quadcoptes and many planes, always usign and microcontrollers to piloted remotly the drones, I need to put a lot of iffort to understad PID control, to setted up the drones
