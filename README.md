@@ -6,4 +6,4 @@ This is my personal web page where I showcase my programming skills, I began cod
 
 Subsequently, I explored Arduinio and wrote code for vaious electronics projects, including a CANSAT. I also immersed myself in several drone projects, constructing both quadcopters and planes. These projects involved using microcontrollers to remotely pilot the drones. Understanding PID control and configuring the drones required significant effort.
 
-After college I was working in a jewlery lightning project developing the hardware en and Iphone app to control the lighning device. this project conducted me to research a lot in a uncharted topics for me
+Fresh out of college, I plunged headlong into an exhilarating project—an LED lightning masterpiece infused with jewelry-like hues. My dual mission: craft the hardware and design an iPhone app to wield this captivating lightning device. But fate had more in store for me than mere technology; it beckoned me toward uncharted territories
