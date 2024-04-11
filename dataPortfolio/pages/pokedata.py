@@ -1,9 +1,10 @@
+
 import reflex as rx
 from reflex_simpleicons import simpleicons
 from dataPortfolio.components.sidebar import sidebar
 import pandas as pd
 
-
+#region State
 path = "https://mydatabucket-altesla.s3.us-west-1.amazonaws.com/Pokemon_data.csv"
 poke_frame = pd.read_csv(path)
 poke_frame = poke_frame.drop("Unnamed: 0", axis=1)
@@ -37,6 +38,7 @@ class PokeState(rx.State):
         strongest_image = strongest_row["ImageUrl"].squeeze()
         return strongest_image
 
+# region views
 
 def gen_selector() -> rx.Component:
     return rx.card(
@@ -55,10 +57,10 @@ def gen_selector() -> rx.Component:
     
 
 def strongest() -> rx.Component:
-    return rx.box(
+    return rx.card(
+        rx.heading("Strongest"),
         rx.text(PokeState.max_name),
-        rx.image(src=PokeState.max_image, width = "12em", height="auto")
-        
+        rx.image(src=PokeState.max_image, width = "12em", height="auto")    
     )
 
 
@@ -67,15 +69,19 @@ def pokedata() -> rx.Component:
     return rx.hstack(
         sidebar(),
         rx.vstack(
-            rx.heading("Pokedata Visulization", as_="h1", size="9", align="center", width="1600px"),
-            rx.spacer(), 
-            rx.box(
-                gen_selector(),
-                width="15em",
-                height="auto"
-
+            rx.section(
+                rx.heading("Pokedata Visulization", as_="h1", size="9", align="center", width="1600px"),
             ),
-            rx.text(PokeState.selected_gen.to_string()),
-            strongest()
-        )
+            rx.hstack(
+                rx.spacer(), 
+                rx.box(
+                    gen_selector(),
+                    width="15em",
+                    height="auto"
+
+                ),
+                strongest(),
+            )
+        ),
+        width="66em"
     )
