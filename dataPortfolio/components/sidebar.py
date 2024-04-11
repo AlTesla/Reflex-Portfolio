@@ -122,7 +122,7 @@ def sidebar() -> rx.Component:
         min_width="15em",
         height="100%",
         position="sticky",
-        top="0px",
+        top="",
         border_right="1px solid #F4F3F6",
     )
 

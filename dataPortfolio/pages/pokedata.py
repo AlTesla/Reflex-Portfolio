@@ -50,8 +50,10 @@ def gen_selector() -> rx.Component:
                 label="Generation",
                 on_change=PokeState.set_selected_gen,
                 value=PokeState.selected_gen,
+                width="8em"
                 ),
-            direction='column'
+            direction='column',
+            align='center'
         )
     )
     
@@ -66,22 +68,26 @@ def strongest() -> rx.Component:
 
 @rx.page(route="/pokedata", title="Pokedata")
 def pokedata() -> rx.Component:
-    return rx.hstack(
-        sidebar(),
-        rx.vstack(
-            rx.section(
-                rx.heading("Pokedata Visulization", as_="h1", size="9", align="center", width="1600px"),
-            ),
-            rx.hstack(
-                rx.spacer(), 
-                rx.box(
-                    gen_selector(),
-                    width="15em",
-                    height="auto"
-
+    return rx.box(
+        rx.hstack(
+            sidebar(),
+            rx.vstack(
+                rx.section(
+                    rx.heading("Pokedata Visulization", as_="h1", size="9", align="center"),
                 ),
-                strongest(),
+                rx.hstack(
+                    rx.spacer(), 
+                    rx.box(
+                        gen_selector(),
+                        width="15em",
+                        height="auto"
+
+                    ),
+                    strongest(),
+                ),
+                width=""
+
             )
-        ),
-        width="66em"
+        ), 
+        width="80em"
     )
