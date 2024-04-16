@@ -40,7 +40,8 @@ def landing() -> rx.Component:
                     rx.icon("github"),
                     color_scheme="gray"
                 ),
-                width="64em"            ),
+                width="64em"            
+            ),
             rx.heading("Experience", as_="h2"),
             rx.text("I specialise in Data Visulization, Data Transform and Loading, and Mechanical Drawing", color_scheme="gray")
         )

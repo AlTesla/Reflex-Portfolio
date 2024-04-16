@@ -40,7 +40,6 @@ def sidebar_menu() -> rx.Component:
                             rx.text("Pokedata"),
                             href="/pokedata",
                             color_scheme="gray"
-
                         )
                     )
                 )
@@ -118,7 +117,7 @@ def sidebar() -> rx.Component:
 
         ),
         align_items="left",
-        min_width="15em",
+        max_width="15em",
         height="100%",
         position="sticky",
         top="",
