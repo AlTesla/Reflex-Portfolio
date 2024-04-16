@@ -11,7 +11,6 @@ def sidebar_header() -> rx.Component:
         
     )
 
-
 def sidebar_item(text: str, ico: str, url: str) -> rx.Component:
     return rx.link(
         rx.hstack(
@@ -44,7 +43,7 @@ def sidebar_menu() -> rx.Component:
 
                         )
                     )
-                ),
+                )
             ),
             rx.chakra.accordion_item(
                 rx.chakra.accordion_button(
@@ -59,8 +58,8 @@ def sidebar_menu() -> rx.Component:
                     rx.chakra.text(
                     "This is an example of an accordion component."
                    )
-                ),
-            ),
+                )
+            )
         )
     )
 

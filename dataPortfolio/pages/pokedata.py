@@ -88,6 +88,7 @@ def pokedata() -> rx.Component:
                 width=""
 
             )
-        ), 
-        width="80em"
+        ),
+        width="80em",
+        
     )
