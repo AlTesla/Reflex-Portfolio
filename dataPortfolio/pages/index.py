@@ -40,12 +40,10 @@ def landing() -> rx.Component:
                     rx.icon("github"),
                     color_scheme="gray"
                 ),
-                width="1600px"
-            ),
+                width="64em"            ),
             rx.heading("Experience", as_="h2"),
             rx.text("I specialise in Data Visulization, Data Transform and Loading, and Mechanical Drawing", color_scheme="gray")
-        ),
-        width="1600px"
+        )
     )
 
 
@@ -147,17 +145,22 @@ def experience() -> rx.Component:
 
 @rx.page(route="/index", title="Landing")
 def index() -> rx.Component:
-    return rx.hstack(
-        sidebar(),
-        rx.vstack(
-            landing(),
-            rx.divider(),
-            rx.hstack(
-                summary(),
-                rx.spacer(),
-                skills_links(),
-                padding="2em"
+    return rx.vstack(
+        rx.hstack(
+            sidebar(),
+            rx.vstack(
+                landing(),
+                rx.divider(),
+                rx.hstack(
+                    summary(),
+                    rx.spacer(),
+                    skills_links(),
+                    padding="2em"
+                ),
+                experience(),
+                max_width="64em"
             ),
-            experience()
-        )
+            width="80em",
+        ),
+        align_items="center"
     )

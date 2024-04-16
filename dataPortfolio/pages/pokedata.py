@@ -68,12 +68,13 @@ def strongest() -> rx.Component:
 
 @rx.page(route="/pokedata", title="Pokedata")
 def pokedata() -> rx.Component:
-    return rx.box(
+    return rx.vstack(
         rx.hstack(
             sidebar(),
             rx.vstack(
                 rx.section(
                     rx.heading("Pokedata Visulization", as_="h1", size="9", align="center"),
+                    width="100%"
                 ),
                 rx.hstack(
                     rx.spacer(), 
@@ -85,10 +86,9 @@ def pokedata() -> rx.Component:
                     ),
                     strongest(),
                 ),
-                width=""
+                width="64em"
 
             )
         ),
-        width="80em",
-        
+        align_items="center"
     )
