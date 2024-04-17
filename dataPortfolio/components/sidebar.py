@@ -7,7 +7,7 @@ def sidebar_header() -> rx.Component:
         rx.box(simpleicons("GitHub",brand_color=True, size=24)),
         rx.heading("AlTeslaDev"),
         spacing="2",
-        padding_bottom="1em"
+        padding_="1em"
         
     )
 
@@ -117,10 +117,9 @@ def sidebar() -> rx.Component:
 
         ),
         align_items="left",
-        max_width="15em",
-        height="100%",
+        width="15em",
         position="sticky",
-        top="",
         border_right="1px solid #F4F3F6",
+        height="100%",
     )
 

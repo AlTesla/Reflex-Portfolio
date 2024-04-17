@@ -38,6 +38,19 @@ class PokeState(rx.State):
         strongest_image = strongest_row["ImageUrl"].squeeze()
         return strongest_image
 
+    @rx.var
+    def min_name(self)->str:
+        weakest_row = self.gen_df.loc[self.gen_df['Total'].idxmin()].to_frame().T
+        weakest_name = weakest_row['Name'].squeeze()
+        return weakest_name
+    
+    @rx.var
+    def min_image(self)->str:
+        weakest_row = self.gen_df.loc[self.gen_df['Total'].idxmin()].to_frame().T
+        weakest_image = weakest_row['ImageUrl'].squeeze()
+        return weakest_image
+        
+    
 # region views
 
 def gen_selector() -> rx.Component:
@@ -51,7 +64,7 @@ def gen_selector() -> rx.Component:
                 on_change=PokeState.set_selected_gen,
                 value=PokeState.selected_gen,
                 width="8em"
-                ),
+            ),
             direction='column',
             align='center'
         )
@@ -63,6 +76,14 @@ def strongest() -> rx.Component:
         rx.heading("Strongest"),
         rx.text(PokeState.max_name),
         rx.image(src=PokeState.max_image, width = "12em", height="auto")    
+    )
+
+
+def weakest() -> rx.Component:
+    return rx.card(
+        rx.heading("Weakest"),
+        rx.text(PokeState.min_name),
+        rx.image(src=PokeState.min_image, width="12em", height="auto")
     )
 
 
@@ -82,12 +103,11 @@ def pokedata() -> rx.Component:
                         gen_selector(),
                         width="15em",
                         height="auto"
-
                     ),
                     strongest(),
+                    weakest(),
                 ),
                 width="64em"
-
             )
         ),
         align_items="center"
