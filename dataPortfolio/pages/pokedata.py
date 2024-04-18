@@ -87,28 +87,37 @@ def weakest() -> rx.Component:
     )
 
 
+def pokedata_content() -> rx.Component:
+    return rx.vstack(
+        rx.section(
+            rx.heading("Pokedata Visulization",
+                       as_="h1", 
+                       size="9", 
+                       align="center"),
+            width="100%"
+        ),
+        rx.hstack(
+            rx.spacer(), 
+            rx.box(
+                gen_selector(),
+                width="15em",
+                height="auto"
+            ),
+            strongest(),
+            weakest(),
+        ),
+        width="64em"
+    )
+    
+    
+
 @rx.page(route="/pokedata", title="Pokedata")
 def pokedata() -> rx.Component:
     return rx.vstack(
         rx.hstack(
             sidebar(),
-            rx.vstack(
-                rx.section(
-                    rx.heading("Pokedata Visulization", as_="h1", size="9", align="center"),
-                    width="100%"
-                ),
-                rx.hstack(
-                    rx.spacer(), 
-                    rx.box(
-                        gen_selector(),
-                        width="15em",
-                        height="auto"
-                    ),
-                    strongest(),
-                    weakest(),
-                ),
-                width="64em"
-            )
+            pokedata_content(),
+
         ),
         align_items="center"
     )
