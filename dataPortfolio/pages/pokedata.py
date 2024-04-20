@@ -50,7 +50,10 @@ class PokeState(rx.State):
         weakest_image = weakest_row['ImageUrl'].squeeze()
         return weakest_image
         
-    
+    @rx.var
+    def poke_keys(self) -> list:
+        key_list = ["HP","Attack","Defense", "SpAtk", "SpDef", "Speed"]
+        return key_list
 # region views
 
 def gen_selector() -> rx.Component:
@@ -117,7 +120,7 @@ def pokedata() -> rx.Component:
         rx.hstack(
             sidebar(),
             pokedata_content(),
-
         ),
+        rx.text(PokeState.poke_keys),
         align_items="center"
     )
