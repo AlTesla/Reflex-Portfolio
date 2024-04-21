@@ -3,6 +3,7 @@ import reflex as rx
 from reflex_simpleicons import simpleicons
 from dataPortfolio.components.sidebar import sidebar
 import pandas as pd
+import plotly.express as px
 
 #region State
 path = "https://mydatabucket-altesla.s3.us-west-1.amazonaws.com/Pokemon_data.csv"
@@ -54,6 +55,14 @@ class PokeState(rx.State):
     def poke_keys(self) -> list:
         key_list = ["HP","Attack","Defense", "SpAtk", "SpDef", "Speed"]
         return key_list
+    
+    @rx.var
+    def max_values(self) -> list:
+        strongest_row = self.gen_df.loc[self.gen_df['Total'].idxmax()].to_frame().T
+        strongest_row = strongest_row[["HP","Attack","Defense", "SpAtk", "SpDef", "Speed"]]
+        strongest_row = strongest_row.to_dict()
+        max_values_list = list(strongest_row.values())
+        return max_values_list        
 # region views
 
 def gen_selector() -> rx.Component:
@@ -90,6 +99,10 @@ def weakest() -> rx.Component:
     )
 
 
+def max_radar() -> rx.Component:
+    return rx.plotly()
+
+
 def pokedata_content() -> rx.Component:
     return rx.vstack(
         rx.section(
@@ -122,5 +135,6 @@ def pokedata() -> rx.Component:
             pokedata_content(),
         ),
         rx.text(PokeState.poke_keys),
+        rx.text(PokeState.max_values),
         align_items="center"
     )
