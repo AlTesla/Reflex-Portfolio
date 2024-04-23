@@ -60,7 +60,6 @@ class PokeState(rx.State):
     def max_values(self) -> list:
         strongest_row = self.gen_df.loc[self.gen_df['Total'].idxmax()].to_frame().T
         strongest_row = strongest_row[["HP","Attack","Defense", "SpAtk", "SpDef", "Speed"]]
-        strongest_row = strongest_row.to_dict()
         max_values_list = list(strongest_row.values())
         return max_values_list        
 # region views
@@ -100,7 +99,11 @@ def weakest() -> rx.Component:
 
 
 def max_radar() -> rx.Component:
-    return rx.plotly()
+    df= pd.DataFrame(dict(PokeState.max_values))
+    fig = px.line_polar(
+        df,r="r", theta='theta', line_close=True, title="Stronger Stats"
+    )
+    return rx.plotly(data=fig, height="25em")
 
 
 def pokedata_content() -> rx.Component:
