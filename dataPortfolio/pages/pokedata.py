@@ -99,9 +99,11 @@ def weakest() -> rx.Component:
 
 
 def max_radar() -> rx.Component:
-    df= pd.DataFrame(dict(PokeState.max_values))
+    df= pd.DataFrame(dict(
+        r = PokeState.max_values,
+        theta = PokeState.poke_keys))
     fig = px.line_polar(
-        df,r="r", theta='theta', line_close=True, title="Stronger Stats"
+        df,r='r', theta='theta', line_close=True, title="Stronger Stats"
     )
     return rx.plotly(data=fig, height="25em")
 
