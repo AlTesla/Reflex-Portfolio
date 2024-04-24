@@ -60,7 +60,7 @@ class PokeState(rx.State):
     def max_values(self) -> list:
         strongest_row = self.gen_df.loc[self.gen_df['Total'].idxmax()].to_frame().T
         strongest_row = strongest_row[["HP","Attack","Defense", "SpAtk", "SpDef", "Speed"]]
-        max_values_list = list(strongest_row.values())
+        max_values_list = [2,3,2,4,5,1]
         return max_values_list        
 # region views
 
@@ -139,7 +139,6 @@ def pokedata() -> rx.Component:
             sidebar(),
             pokedata_content(),
         ),
-        rx.text(PokeState.poke_keys),
-        rx.text(PokeState.max_values),
+        max_radar(),
         align_items="center"
     )
