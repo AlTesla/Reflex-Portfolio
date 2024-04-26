@@ -11,3 +11,5 @@ Fresh out of college, I plunged headlong into an exhilarating project—an LED l
 In 2021, I decided to change careers. I began learning Python to stay connected with coding. Along the way, I stumbled upon data science topics. Although I didn’t know much about data science initially, it intrigued me. I developed a keen interest in data visualization and learned how to use some of the main data science libraries, such as Pandas, NumPy, Seaborn, and Plotly.
 
 Fast forward to 2023, when I enrolled in a data analyst certification program at one of the most important universities in Mexico. The journey was challenging, but I successfully obtained my certification. Now, I am ready to transition into a new career.
+
+nowadays I keep developing my coding skills, this web page is an example. 
