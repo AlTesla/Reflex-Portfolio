@@ -12,4 +12,4 @@ In 2021, I decided to change careers. I began learning Python to stay connected 
 
 Fast forward to 2023, when I enrolled in a data analyst certification program at one of the most important universities in Mexico. The journey was challenging, but I successfully obtained my certification. Now, I am ready to transition into a new career.
 
-nowadays I keep developing my coding skills, this web page is an example. 
+Currently, I am actively honing my coding skills, and this web page serves as a testament to my progress.
