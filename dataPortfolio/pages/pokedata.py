@@ -14,7 +14,9 @@ gens = ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th']
 class PokeState(rx.State):
     gen = ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th']
     selected_gen: str ='4th'
-
+    key_list = ["HP","Attack","Defense", "SpAtk", "SpDef", "Speed"]
+    
+    
     @rx.var
     def gen_df(self) -> pd.DataFrame:
         pk_df = poke_frame[poke_frame["Generation"] == self.selected_gen].copy()
@@ -50,12 +52,12 @@ class PokeState(rx.State):
         weakest_row = self.gen_df.loc[self.gen_df['Total'].idxmin()].to_frame().T
         weakest_image = weakest_row['ImageUrl'].squeeze()
         return weakest_image
-        
+    """     
     @rx.var
     def poke_keys(self) -> list:
         key_list = ["HP","Attack","Defense", "SpAtk", "SpDef", "Speed"]
         return key_list
-    
+    """
     @rx.var
     def max_values(self) -> list:
         strongest_row = self.gen_df.loc[self.gen_df['Total'].idxmax()].to_frame().T
