@@ -88,7 +88,9 @@ def strongest() -> rx.Component:
     return rx.card(
         rx.heading("Strongest"),
         rx.text(PokeState.max_name),
-        rx.image(src=PokeState.max_image, width = "12em", height="auto")    
+        rx.image(src=PokeState.max_image, width = "12em", height="auto"),
+        max_radar(),
+        width = "30em"
     )
 
 
@@ -101,13 +103,10 @@ def weakest() -> rx.Component:
 
 
 def max_radar() -> rx.Component:
-    df= pd.DataFrame(dict(
-        r = PokeState.max_values,
-        theta = PokeState.poke_keys))
-    fig = px.line_polar(
-        df,r='r', theta='theta', line_close=True, title="Stronger Stats"
-    )
-    return rx.plotly(data=fig, height="25em")
+    fig = px.line_polar(r=[106, 90, 130, 90, 154, 110],
+                        theta=["HP","Attack","Defense", "SpAtk", "SpDef", "Speed"],
+                        line_close=True)
+    return rx.plotly(data=fig, height="10em", width="10em")
 
 
 def pokedata_content() -> rx.Component:
@@ -141,6 +140,5 @@ def pokedata() -> rx.Component:
             sidebar(),
             pokedata_content(),
         ),
-        max_radar(),
         align_items="center"
     )
