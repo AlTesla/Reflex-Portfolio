@@ -15,5 +15,17 @@ Fast forward to 2023, when I enrolled in a data analyst certification program at
 Currently, I am actively honing my coding skills, and this web page serves as a testament to my progress.
 
 
-## Table of contents 
-i'm using an awsG s3 bucket
+# Content
+
+## Reflex-Portfolio
+### folders
+* assets
+* dataPortfolio
+* notebooks
+notebooks
+### files 
+* .gitnore
+* =4.2.0
+* README.md
+* requeriments.txt
+* rxconfig.py
