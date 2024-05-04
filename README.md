@@ -20,7 +20,15 @@ Currently, I am actively honing my coding skills, and this web page serves as a 
 ## Reflex-Portfolio
 ### folders
 * assets
+    * cover.jpg
+    * data_landing.png
+    * favicon.ico
 * dataPortfolio
+    * components
+    * pages
+    * styles
+    * init.py
+    * dataPortfolio.py
 * notebooks
 notebooks
 ### files 
