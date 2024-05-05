@@ -25,8 +25,14 @@ Currently, I am actively honing my coding skills, and this web page serves as a 
     * favicon.ico
 * dataPortfolio
     * components
+        * sidebar.py
     * pages
+        index.py
+        pokedata.py
     * styles
+        * colors.py
+        * fonts.py
+        * styles.py 
     * init.py
     * dataPortfolio.py
 * notebooks
