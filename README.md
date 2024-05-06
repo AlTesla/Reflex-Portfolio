@@ -36,7 +36,7 @@ Currently, I am actively honing my coding skills, and this web page serves as a 
     * init.py
     * dataPortfolio.py
 * notebooks
-notebooks
+    * poke_eda.ipynb
 ### files 
 * .gitnore
 * =4.2.0
