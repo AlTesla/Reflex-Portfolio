@@ -122,4 +122,3 @@ def sidebar() -> rx.Component:
         border_right="1px solid #F4F3F6",
         height="100%",
     )
-

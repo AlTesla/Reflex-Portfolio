@@ -15,6 +15,8 @@ class PokeState(rx.State):
     gen = ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th']
     selected_gen: str ='4th'
     key_list = ["HP","Attack","Defense", "SpAtk", "SpDef", "Speed"]
+    data_columns = ['ID', 'Name', 'Total', 'HP', 'Attack', 'Defense', 'SpAtk', 'SpDef',
+                    'Speed', 'Type1', 'Type2', 'Height', 'Weight', 'ImageUrl','Generation']
     
     
     @rx.var
