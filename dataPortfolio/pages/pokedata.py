@@ -4,6 +4,8 @@ from reflex_simpleicons import simpleicons
 from dataPortfolio.components.sidebar import sidebar
 import pandas as pd
 import plotly.express as px
+import numpy as np
+
 
 #region State
 path = "https://mydatabucket-altesla.s3.us-west-1.amazonaws.com/Pokemon_data.csv"
