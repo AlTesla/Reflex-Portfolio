@@ -90,11 +90,15 @@ def gen_selector() -> rx.Component:
 
 def strongest() -> rx.Component:
     return rx.card(
-        rx.heading("Strongest"),
-        rx.text(PokeState.max_name),
-        rx.image(src=PokeState.max_image, width = "12em", height="auto"),
-        max_radar(),
-        width = "30em"
+        rx.hstack(
+            rx.vstack(
+                rx.heading("Strongest"),
+                rx.text(PokeState.max_name),
+                rx.image(src=PokeState.max_image, width = "12em", height="auto"),
+            ),
+             max_radar()
+        ),
+        width = "60em"
     )
 
 
@@ -129,8 +133,10 @@ def pokedata_content() -> rx.Component:
                 width="15em",
                 height="auto"
             ),
-            strongest(),
-            weakest(),
+            rx.vstack(
+                strongest(),
+                weakest(),
+            )
         ),
         width="64em"
     )
