@@ -4,8 +4,7 @@ from reflex_simpleicons import simpleicons
 from dataPortfolio.components.sidebar import sidebar
 import pandas as pd
 import plotly.express as px
-import numpy as np
-
+import json
 
 #region State
 path = "https://mydatabucket-altesla.s3.us-west-1.amazonaws.com/Pokemon_data.csv"
@@ -46,13 +45,13 @@ class PokeState(rx.State):
         return strongest_image
 
     @rx.var
-    def min_name(self)->str:
+    def min_name(self)-> str:
         weakest_row = self.gen_df.loc[self.gen_df['Total'].idxmin()].to_frame().T
         weakest_name = weakest_row['Name'].squeeze()
         return weakest_name
     
     @rx.var
-    def min_image(self)->str:
+    def min_image(self)-> str:
         weakest_row = self.gen_df.loc[self.gen_df['Total'].idxmin()].to_frame().T
         weakest_image = weakest_row['ImageUrl'].squeeze()
         return weakest_image
@@ -62,14 +61,15 @@ class PokeState(rx.State):
         key_list = ["HP","Attack","Defense", "SpAtk", "SpDef", "Speed"]
         return key_list
     """
+  
     @rx.var
-    def max_values(self) -> list:
-        strongest_row = self.gen_df.loc[self.gen_df['Total'].idxmax()].to_frame().T
-        strongest_row = strongest_row[["HP","Attack","Defense", "SpAtk", "SpDef", "Speed"]]
-        max_values_list = [2,3,2,4,5,1]
-        return max_values_list        
+    def strong_values(self) -> json:
+        strongest_df = self.gen_df.loc[self.gen_df['Total'].idxmax()]
+        data_list = strongest_df[self.key_list].to_json()
+        return data_list
+    
+    
 # region views
-
 def gen_selector() -> rx.Component:
     return rx.card(
         rx.flex(
@@ -90,15 +90,11 @@ def gen_selector() -> rx.Component:
 
 def strongest() -> rx.Component:
     return rx.card(
-        rx.hstack(
-            rx.vstack(
-                rx.heading("Strongest"),
-                rx.text(PokeState.max_name),
-                rx.image(src=PokeState.max_image, width = "12em", height="auto"),
-            ),
-             max_radar()
-        ),
-        width = "60em"
+        rx.vstack(
+            rx.heading("Strongest"),
+            rx.text(PokeState.max_name),
+            rx.image(src=PokeState.max_image, width = "12em", height="auto"),
+        )
     )
 
 
@@ -109,12 +105,19 @@ def weakest() -> rx.Component:
         rx.image(src=PokeState.min_image, width="12em", height="auto")
     )
 
-
+"""
 def max_radar() -> rx.Component:
-    fig = px.line_polar(r=[106, 90, 130, 90, 154, 110],
-                        theta=["HP","Attack","Defense", "SpAtk", "SpDef", "Speed"],
-                        line_close=True)
-    return rx.plotly(data=fig, height="10em", width="10em")
+    data_dict= 
+    df = pd.DataFrame(PokeState.strong_values, columns=["Stat", "Value"])
+    fig = px.line_polar(df, r="Value", theta="Stat", line_close=True)
+    return rx.plotly(data=fig, height="20em", width="20em")
+"""
+
+def strongest_radar() -> rx.Component:
+    return rx.card(
+        rx.heading("Strongest Polar Chart"),
+        rx.text(PokeState.strong_values)
+    )
 
 
 def pokedata_content() -> rx.Component:
@@ -134,7 +137,10 @@ def pokedata_content() -> rx.Component:
                 height="auto"
             ),
             rx.vstack(
-                strongest(),
+                rx.hstack(
+                    strongest(),
+                    strongest_radar(),
+                ),
                 weakest(),
             )
         ),
