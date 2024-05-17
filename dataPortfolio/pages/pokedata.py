@@ -57,9 +57,15 @@ class PokeState(rx.State):
         return weakest_image
    
     @rx.var
-    def strong_values(self) -> go.Figure:
+    def max_radar(self) -> go.Figure:
         strongest_row = self.gen_df.loc[self.gen_df['Total'].idxmax()].to_frame().T
-        return value_list
+        strongest_values = strongest_row[self.key_list]
+        
+        return px.line_polar(strongest_values, 
+                            r= strongest_values.iloc[0], 
+                            theta= strongest_values.columns,
+                            title='Strongest skills'
+                            )
     
     
 # region views
@@ -103,8 +109,7 @@ def strongest_radar() -> rx.Component:
     data_list = PokeState.strong_values
     return rx.card(
         rx.heading("Strongest Polar Chart"),
-        rx.text(data_list)
-        #max_radar()
+        PokeState.max_radar
     )
 
 
