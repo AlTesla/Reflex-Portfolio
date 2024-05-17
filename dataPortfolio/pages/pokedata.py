@@ -55,15 +55,15 @@ class PokeState(rx.State):
         weakest_row = self.gen_df.loc[self.gen_df['Total'].idxmin()].to_frame().T
         weakest_image = weakest_row['ImageUrl'].squeeze()
         return weakest_image
-   
+    
     @rx.var
     def max_radar(self) -> go.Figure:
         strongest_row = self.gen_df.loc[self.gen_df['Total'].idxmax()].to_frame().T
         strongest_values = strongest_row[self.key_list]
         
         return px.line_polar(strongest_values, 
-                            r= strongest_values.iloc[0], 
-                            theta= strongest_values.columns,
+                            r= strongest_values.columns, 
+                            theta= strongest_values.iloc[0],
                             title='Strongest skills'
                             )
     
@@ -106,10 +106,9 @@ def weakest() -> rx.Component:
 
 
 def strongest_radar() -> rx.Component:
-    data_list = PokeState.strong_values
     return rx.card(
         rx.heading("Strongest Polar Chart"),
-        PokeState.max_radar
+        rx.plotly(data=PokeState.max_radar, layout={"width":"800", "height":"480"} )
     )
 
 
