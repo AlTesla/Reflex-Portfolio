@@ -4,7 +4,7 @@ from reflex_simpleicons import simpleicons
 from dataPortfolio.components.sidebar import sidebar
 import pandas as pd
 import plotly.express as px
-import json
+import plotly.graph_objects as go
 
 #region State
 path = "https://mydatabucket-altesla.s3.us-west-1.amazonaws.com/Pokemon_data.csv"
@@ -55,18 +55,11 @@ class PokeState(rx.State):
         weakest_row = self.gen_df.loc[self.gen_df['Total'].idxmin()].to_frame().T
         weakest_image = weakest_row['ImageUrl'].squeeze()
         return weakest_image
-    """     
+   
     @rx.var
-    def poke_keys(self) -> list:
-        key_list = ["HP","Attack","Defense", "SpAtk", "SpDef", "Speed"]
-        return key_list
-    """
-  
-    @rx.var
-    def strong_values(self) -> json:
-        strongest_df = self.gen_df.loc[self.gen_df['Total'].idxmax()]
-        data_list = strongest_df[self.key_list].to_json()
-        return data_list
+    def strong_values(self) -> go.Figure:
+        strongest_row = self.gen_df.loc[self.gen_df['Total'].idxmax()].to_frame().T
+        return value_list
     
     
 # region views
@@ -105,18 +98,13 @@ def weakest() -> rx.Component:
         rx.image(src=PokeState.min_image, width="12em", height="auto")
     )
 
-"""
-def max_radar() -> rx.Component:
-    data_dict= 
-    df = pd.DataFrame(PokeState.strong_values, columns=["Stat", "Value"])
-    fig = px.line_polar(df, r="Value", theta="Stat", line_close=True)
-    return rx.plotly(data=fig, height="20em", width="20em")
-"""
 
 def strongest_radar() -> rx.Component:
+    data_list = PokeState.strong_values
     return rx.card(
         rx.heading("Strongest Polar Chart"),
-        rx.text(PokeState.strong_values)
+        rx.text(data_list)
+        #max_radar()
     )
 
 
