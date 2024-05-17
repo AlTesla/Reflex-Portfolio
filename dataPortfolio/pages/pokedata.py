@@ -58,15 +58,20 @@ class PokeState(rx.State):
     
     @rx.var
     def max_radar(self) -> go.Figure:
+        skill_names = self.key_list
+        values = []
         strongest_row = self.gen_df.loc[self.gen_df['Total'].idxmax()].to_frame().T
-        strongest_values = strongest_row[self.key_list]
         
-        return px.line_polar(strongest_values, 
-                            r= strongest_values.columns, 
-                            theta= strongest_values.iloc[0],
-                            title='Strongest skills'
+        for skill in skill_names :
+            skill_value = strongest_row[skill].squeeze()
+            values.append(int(skill_value))
+            
+        df = pd.DataFrame({"Skill": skill_names, "Value": values})
+        return px.line_polar(df, 
+                            r= "Value", 
+                            theta= "Skill",
+                            line_close=True
                             )
-    
     
 # region views
 def gen_selector() -> rx.Component:
