@@ -70,7 +70,7 @@ class PokeState(rx.State):
         return px.line_polar(df, 
                             r= "Value", 
                             theta= "Skill",
-                            line_close=True
+                            line_close=True,
                             )
     
 # region views
@@ -112,8 +112,7 @@ def weakest() -> rx.Component:
 
 def strongest_radar() -> rx.Component:
     return rx.card(
-        rx.heading("Strongest Polar Chart"),
-        rx.plotly(data=PokeState.max_radar, layout={"width":"800", "height":"480"} )
+        rx.plotly(data=PokeState.max_radar, layout={"width":"256", "height":"256"})
     )
 
 
