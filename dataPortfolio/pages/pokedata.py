@@ -112,7 +112,7 @@ def weakest() -> rx.Component:
 
 def strongest_radar() -> rx.Component:
     return rx.card(
-        rx.plotly(data=PokeState.max_radar, layout={"width":"256", "height":"256"})
+        rx.plotly(data=PokeState.max_radar, layout={"width":"24em", "height":"auto"})
     )
 
 
