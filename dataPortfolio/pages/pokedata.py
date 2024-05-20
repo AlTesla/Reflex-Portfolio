@@ -72,6 +72,23 @@ class PokeState(rx.State):
                             theta= "Skill",
                             line_close=True,
                             )
+        
+    @rx.var    
+    def min_radar(self) -> go.Figure:
+        skill_names = self.key_list
+        values = []
+        weakest_row = self.gen_df.loc[self.gen_df['Total'].idxmin()].to_frame().T
+        
+        for skill in skill_names :
+            skill_value = weakest_row[skill].squeeze()
+            values.append(int(skill_value))
+            
+        df = pd.DataFrame({"Skill": skill_names, "Value": values})
+        return px.line_polar(df, 
+                            r= "Value", 
+                            theta= "Skill",
+                            line_close=True,
+                            )
     
 # region views
 def gen_selector() -> rx.Component:
