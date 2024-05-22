@@ -25,13 +25,11 @@ class PokeState(rx.State):
         pk_df = poke_frame[poke_frame["Generation"] == self.selected_gen].copy()
         return pk_df
 
-    """
     @rx.var
-    def max_row(self) -> pd.DataFrame:
-        strongest_row = self.gen_df.loc[self.gen_df['Total'].idxmax()].to_frame().T
-        #strongest_row = self.gen_df[self.gen_df['Total'] == self.gen_df['Total'].max()]
-        return strongest_row
-    """    
+    def weak_df(self) -> pd.DataFrame:
+        
+        
+    
     @rx.var
     def max_name(self) -> str:
         strongest_row = self.gen_df.loc[self.gen_df['Total'].idxmax()].to_frame().T
@@ -89,12 +87,13 @@ class PokeState(rx.State):
                             theta= "Skill",
                             line_close=True,
                             )
+ 
     
 # region views
 def gen_selector() -> rx.Component:
     return rx.card(
         rx.flex(
-            simpleicons(tag="pokémon", brand_color=True, size= 128),
+            simpleicons(tag="pokémon", brand_color=True, size= 256),
             rx.select(
                 gens, 
                 placeholder=gens[0],
@@ -104,8 +103,9 @@ def gen_selector() -> rx.Component:
                 width="8em"
             ),
             direction='column',
-            align='center'
-        )
+            align_items="center"
+        ),
+        width="64em",
     )
     
 
@@ -115,52 +115,34 @@ def strongest() -> rx.Component:
             rx.heading("Strongest"),
             rx.text(PokeState.max_name),
             rx.image(src=PokeState.max_image, width = "12em", height="auto"),
-        )
+            rx.plotly(data=PokeState.max_radar, layout={"width":"auto", "height":"8em"}),
+            align_items="center"
+        ),
+        width="31.7em"
     )
 
 
 def weakest() -> rx.Component:
     return rx.card(
-        rx.heading("Weakest"),
-        rx.text(PokeState.min_name),
-        rx.image(src=PokeState.min_image, width="12em", height="auto")
+        rx.vstack(
+            rx.heading("Weakest"),
+            rx.text(PokeState.min_name),
+            rx.image(src=PokeState.min_image, width="12em", height="auto"),
+            rx.plotly(data=PokeState.min_radar, layout={"width":"auto", "height":"8em"}),
+            align_items="center"
+        ),
+        width="31.7em"
     )
-
-
-def strongest_radar() -> rx.Component:
-    return rx.card(
-        rx.plotly(data=PokeState.max_radar, layout={"width":"auto", "height":"12em"})
-    )
-def weakest_radar() -> rx.Component:
-    return rx.card(
-        rx.plotly(data=PokeState.min_radar, layout={"width":"auto", "height":"12em"})
-    )
+    
 
 def pokedata_content() -> rx.Component:
     return rx.vstack(
-        rx.section(
-            rx.heading("Pokedata Visulization",
-                       as_="h1", 
-                       size="9", 
-                       align="center"),
-            width="100%"
-        ),
-        rx.hstack(
-            rx.spacer(), 
-            rx.box(
-                gen_selector(),
-                width="15em",
-                height="auto"
-            ),
-            rx.vstack(
-                rx.hstack(
-                    strongest(),
-                    strongest_radar(),
-                ),
-                rx.hstack(
-                    weakest(),
-                    weakest_radar()
-                )
+        rx.vstack( 
+            gen_selector(),    
+  
+            rx.hstack(
+                weakest(),
+                strongest(), 
             )
         ),
         width="64em"
