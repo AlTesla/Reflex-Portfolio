@@ -145,11 +145,11 @@ def pokedata_content() -> rx.Component:
     return rx.vstack(
         rx.vstack( 
             gen_selector(),    
-  
             rx.hstack(
                 weakest(),
                 strongest(), 
-            )
+            ),
+            histo_gen()
         ),
         width="64em"
     )
