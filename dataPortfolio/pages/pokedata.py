@@ -87,7 +87,12 @@ class PokeState(rx.State):
                             theta= "Skill",
                             line_close=True,
                             )
- 
+        
+    @rx.var
+    def gen_histogram(self) -> go.Figure:
+        df= self.gen_df
+        return px.scatter(df, x="Total", color="Type1", marginal_x="histogram", hover_name="Name")
+
     
 # region views
 def gen_selector() -> rx.Component:
@@ -134,6 +139,12 @@ def weakest() -> rx.Component:
         width="31.7em"
     )
     
+    
+def histo_gen() -> rx.Component:
+    return rx.card(
+        rx.plotly(data=PokeState.gen_histogram, layout={"width":"auto", "height":"16em"})
+    )
+
 
 def pokedata_content() -> rx.Component:
     return rx.vstack(
