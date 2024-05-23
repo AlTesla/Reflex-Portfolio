@@ -24,12 +24,7 @@ class PokeState(rx.State):
     def gen_df(self) -> pd.DataFrame:
         pk_df = poke_frame[poke_frame["Generation"] == self.selected_gen].copy()
         return pk_df
-
-    @rx.var
-    def weak_df(self) -> pd.DataFrame:
         
-        
-    
     @rx.var
     def max_name(self) -> str:
         strongest_row = self.gen_df.loc[self.gen_df['Total'].idxmax()].to_frame().T
