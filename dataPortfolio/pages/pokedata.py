@@ -86,7 +86,13 @@ class PokeState(rx.State):
     @rx.var
     def gen_histogram(self) -> go.Figure:
         df= self.gen_df
+        return px.histogram(df, x="Total", color="Type1", hover_name="Name")
+    
+    @rx.var
+    def gen_scatter(self) -> go.Figure:
+        df= self.gen_df
         return px.scatter(df, x="Total", color="Type1", hover_name="Name")
+
 
     
 # region views
