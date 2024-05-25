@@ -149,6 +149,14 @@ def histo_gen() -> rx.Component:
     )
 
 
+def scatter_gen() -> rx.Component:
+    return rx.card(
+        rx.plotly(data=PokeState.gen_scatter, layout={"width":960, "height":"auto"}),
+        width="64em",
+        align_items="center"
+    )
+
+
 def pokedata_content() -> rx.Component:
     return rx.vstack(
         rx.vstack( 
@@ -157,7 +165,8 @@ def pokedata_content() -> rx.Component:
                 weakest(),
                 strongest(), 
             ),
-            histo_gen()
+            histo_gen(),
+            scatter_gen(),
         ),
         width="64em"
     )
