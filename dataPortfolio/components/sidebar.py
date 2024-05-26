@@ -106,7 +106,7 @@ def sidebar() -> rx.Component:
                 sidebar_item(
                     "Contact", 
                     "mail",
-                    "/"
+                    "/contact"
                 ),
                 sidebar_menu(),
             ),
