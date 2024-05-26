@@ -55,13 +55,25 @@ def editor_view() -> rx.Component:
             width="100%",
         ),
     )
-
+def why_contact() -> rx.Component:
+    return rx.text(
+        """
+        Please feel free to leave a message, I promise to read it promptly 
+        and provide feedback. Whether you’re curious about my data
+         or engineering projects or just want to chat, I’m all ears!
+         Let’s collaborate and make something awesome together.
+        """
+    )
 def contanct_content() -> rx.Component:
     return rx.vstack(
         rx.card(
             rx.heading(
-                "Contact"
-            )
+                "Contact me",
+                size="9"
+            ),
+            why_contact(),
+            width="64em",
+            align_items="center"
         ),
         rx.card(
             form_example(),
