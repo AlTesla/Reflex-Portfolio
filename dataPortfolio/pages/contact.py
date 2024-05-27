@@ -37,9 +37,9 @@ def form_example():
             on_submit=FormState.handle_submit,
             reset_on_submit=True,
         ),
-        rx.divider(),
-        rx.heading("Results"),
-        rx.text(FormState.form_data.to_string()),
+        #rx.divider(),
+        #rx.heading("Results"),
+        #rx.text(FormState.form_data.to_string()),
     )
 
 def editor_view() -> rx.Component:
@@ -69,7 +69,8 @@ def contanct_content() -> rx.Component:
         rx.card(
             rx.heading(
                 "Contact me",
-                size="9"
+                size="9",
+                align="center"
             ),
             why_contact(),
             width="64em",
