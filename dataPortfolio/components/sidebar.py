@@ -101,7 +101,7 @@ def sidebar() -> rx.Component:
                 sidebar_item(
                     "Dashboard", 
                     "bar-chart-3",
-                    "/"
+                    "/dashboard"
                 ),
                 sidebar_item(
                     "Contact", 
