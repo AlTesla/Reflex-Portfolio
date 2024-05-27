@@ -1,7 +1,8 @@
 import reflex as rx
-from dataPortfolio.components.sidebar import sidebar 
+from dataPortfolio.components.sidebar import sidebar
+from reflex_simpleicons import simpleicons 
 
-def dashboard_item(heading:str ,text: str, ico: str, url: str) -> rx.Component:
+def dashboard_item(heading:str ,text: str, ico: str, url: str, lang: str) -> rx.Component:
     return rx.link(
         rx.card(
             rx.vstack(
@@ -9,11 +10,16 @@ def dashboard_item(heading:str ,text: str, ico: str, url: str) -> rx.Component:
                     rx.icon(ico),
                     rx.heading(heading)
                 ),
-                rx.text(text)
+                rx.text(text),
+                rx.hstack(
+                    simpleicons(lang, size=16),
+                    rx.text(lang)
+                )
             )
             
         ),
         href=url,
+        color_scheme="gray",
         is_external=True    
     )
 
@@ -32,7 +38,9 @@ def dashboard_content() -> rx.Component:
             "belly-button-challenge",
             "Challenge assigment for Data Analytics Bootcamp",
             "github",
-            "https://github.com/AlTesla/belly-button-challenge"
+            "https://github.com/AlTesla/belly-button-challenge",
+            "JavaScript"
+            
         ),
         width="64em"
     )
