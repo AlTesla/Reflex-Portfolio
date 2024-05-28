@@ -39,8 +39,14 @@ def dashboard_content() -> rx.Component:
             "Challenge assigment for Data Analytics Bootcamp",
             "github",
             "https://github.com/AlTesla/belly-button-challenge",
-            "JavaScript"
-            
+            "JavaScript"    
+        ),
+        dashboard_item(
+            "Crowndfunding _ETL",
+            "Challenge assigment for Data Analytics Bootcamp",
+            "github",
+            "https://github.com/estefaniamm99/Crowdfunding_ETL",
+            "Python"
         ),
         width="64em"
     )
