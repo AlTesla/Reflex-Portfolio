@@ -34,26 +34,28 @@ def dashboard_content() -> rx.Component:
             ),
             width="100%"
         ),
-        dashboard_item(
-            "belly-button-challenge",
-            "Challenge assigment for Data Analytics Bootcamp",
-            "github",
-            "https://github.com/AlTesla/belly-button-challenge",
-            "JavaScript"    
-        ),
-        dashboard_item(
-            "Crowndfunding _ETL",
-            "Challenge assigment for Data Analytics Bootcamp",
-            "github",
-            "https://github.com/estefaniamm99/Crowdfunding_ETL",
-            "Python"
-        ),
-        dashboard_item(
-            "VBA-challenge",
-            "Challenge assigment for Data Analytics Bootcamp",
-            "github",
-            "https://github.com/AlTesla/VBA-challenge",
-            "Visual Basic"    
+        rx.flex(
+            dashboard_item(
+                "belly-button-challenge",
+                "Challenge assigment for Data Analytics Bootcamp",
+                "github",
+                "https://github.com/AlTesla/belly-button-challenge",
+                "JavaScript"    
+            ),
+            dashboard_item(
+                "Crowndfunding _ETL",
+                "Challenge assigment for Data Analytics Bootcamp",
+                "github",
+                "https://github.com/estefaniamm99/Crowdfunding_ETL",
+                "Python"
+            ),
+            dashboard_item(
+                "VBA-challenge",
+                "Challenge assigment for Data Analytics Bootcamp",
+                "github",
+                "https://github.com/AlTesla/VBA-challenge",
+                "dotnet"    
+            ),
         ),
         width="64em"
     )
