@@ -48,6 +48,13 @@ def dashboard_content() -> rx.Component:
             "https://github.com/estefaniamm99/Crowdfunding_ETL",
             "Python"
         ),
+        dashboard_item(
+            "VBA-challenge",
+            "Challenge assigment for Data Analytics Bootcamp",
+            "github",
+            "https://github.com/AlTesla/VBA-challenge",
+            "Visual Basic"    
+        ),
         width="64em"
     )
 
