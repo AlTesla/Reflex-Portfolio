@@ -22,7 +22,32 @@ def dashboard_item(heading:str ,text: str, ico: str, url: str, lang: str) -> rx.
         color_scheme="gray",
         is_external=True    
     )
-
+    
+    
+def items_view() -> rx.Component:
+    return rx.flex(
+        dashboard_item(
+            "belly-button-challenge",
+            "Challenge assigment for Data Analytics Bootcamp",
+            "github",
+            "https://github.com/AlTesla/belly-button-challenge",
+            "JavaScript"    
+        ),
+        dashboard_item(
+            "Crowndfunding _ETL",
+            "Challenge assigment for Data Analytics Bootcamp",
+            "github",
+            "https://github.com/estefaniamm99/Crowdfunding_ETL",
+            "Python"
+        ),
+        dashboard_item(
+            "VBA-challenge",
+            "Challenge assigment for Data Analytics Bootcamp",
+            "github",
+            "https://github.com/AlTesla/VBA-challenge",
+            "dotnet"    
+        ),
+    ),
 
 def dashboard_content() -> rx.Component:
     return rx.vstack(
@@ -34,29 +59,8 @@ def dashboard_content() -> rx.Component:
             ),
             width="100%"
         ),
-        rx.flex(
-            dashboard_item(
-                "belly-button-challenge",
-                "Challenge assigment for Data Analytics Bootcamp",
-                "github",
-                "https://github.com/AlTesla/belly-button-challenge",
-                "JavaScript"    
-            ),
-            dashboard_item(
-                "Crowndfunding _ETL",
-                "Challenge assigment for Data Analytics Bootcamp",
-                "github",
-                "https://github.com/estefaniamm99/Crowdfunding_ETL",
-                "Python"
-            ),
-            dashboard_item(
-                "VBA-challenge",
-                "Challenge assigment for Data Analytics Bootcamp",
-                "github",
-                "https://github.com/AlTesla/VBA-challenge",
-                "dotnet"    
-            ),
-        ),
+        items_view(),
+        
         width="64em"
     )
 
