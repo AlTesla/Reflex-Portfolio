@@ -15,8 +15,8 @@ def dashboard_item(heading:str ,text: str, ico: str, url: str, lang: str) -> rx.
                     simpleicons(lang, size=16),
                     rx.text(lang)
                 )
-            )
-            
+            ),
+            width="31.7em",
         ),
         href=url,
         color_scheme="gray",
@@ -27,8 +27,10 @@ def dashboard_item(heading:str ,text: str, ico: str, url: str, lang: str) -> rx.
 def items_view() -> rx.Component:
     return rx.flex(
         dashboard_item(
-            "belly-button-challenge",
-            "Challenge assigment for Data Analytics Bootcamp",
+            "Belly Button Biodiversity ",
+            "The Belly Button Biodiversity project focuses on \
+             exploring the fascinating world of bacterial \
+             species residing in human navels",
             "github",
             "https://github.com/AlTesla/belly-button-challenge",
             "JavaScript"    
@@ -47,6 +49,17 @@ def items_view() -> rx.Component:
             "https://github.com/AlTesla/VBA-challenge",
             "dotnet"    
         ),
+        dashboard_item(
+            "EmployeeSQL",
+            "This repository contains a comprehensive employee database", 
+            "github",
+            "https://github.com/AlTesla/sql-challenge",
+            "postgresql"
+        ),
+        width="100%", 
+        flex_wrap="wrap",
+        spacing="2", 
+        justify="between"
     ),
 
 def dashboard_content() -> rx.Component:
