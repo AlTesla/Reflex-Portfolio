@@ -56,6 +56,13 @@ def items_view() -> rx.Component:
             "https://github.com/AlTesla/sql-challenge",
             "postgresql"
         ),
+        dashboard_item(
+            "Pymaceutical",
+            "Analysis of different cancer treatment on mice", 
+            "github",
+            "https://github.com/AlTesla/Matplotlib-challenge",
+            "jupyter"
+        ),
         width="100%", 
         flex_wrap="wrap",
         spacing="2", 
