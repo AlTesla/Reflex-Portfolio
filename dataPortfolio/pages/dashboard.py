@@ -17,6 +17,7 @@ def dashboard_item(heading:str ,text: str, ico: str, url: str, lang: str) -> rx.
                 )
             ),
             width="31.7em",
+            height="10em",
         ),
         href=url,
         color_scheme="indigo",
