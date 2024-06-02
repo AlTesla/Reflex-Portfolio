@@ -19,7 +19,7 @@ def dashboard_item(heading:str ,text: str, ico: str, url: str, lang: str) -> rx.
             width="31.7em",
         ),
         href=url,
-        color_scheme="gray",
+        color_scheme="indigo",
         is_external=True    
     )
     
