@@ -1,4 +1,3 @@
-
 import reflex as rx
 from reflex_simpleicons import simpleicons
 from dataPortfolio.components.sidebar import sidebar
