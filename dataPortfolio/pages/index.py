@@ -14,7 +14,7 @@ def cover_image() -> rx.Component:
 
 def avatar() -> rx.Component:
     return rx.flex(
-        rx.avatar(fallback="Al", size="9", radius='full'),
+        rx.avatar(src="/avatar.jpeg", size="9", radius='full'),
         rx.vstack(
             rx.text("Alvaro Corona", weight="bold", size="4"),
             rx.text("I am an Aerospace Engineer and Data Analyst", color_scheme="gray")
