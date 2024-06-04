@@ -43,7 +43,14 @@ def landing() -> rx.Component:
                 width="64em"            
             ),
             rx.heading("Experience", as_="h2"),
-            rx.text("I specialise in Data Visulization, Data Transform and Loading, and Mechanical Drawing", color_scheme="gray")
+            rx.text("""
+                    As an aerospace engineer, I specialized in technology development, 
+                    particularly within the drone (RPA) industry. This innovative field 
+                    motivated me to continuously learn and stay ahead of the curve. 
+                    Initially, my focus was on product design, but in recent years, 
+                    I’ve delved into data engineering and software development, discovering 
+                    new passions along the way.
+                    """, color_scheme="gray")
         )
     )
 
