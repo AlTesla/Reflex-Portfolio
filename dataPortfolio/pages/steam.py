@@ -5,6 +5,21 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 
+
+# region Data Frame
+path = "https://mydatabucket-altesla.s3.us-west-1.amazonaws.com/steam.csv"
+steam_frame = pd.read_csv(path)
+steam_frame = steam_frame.drop("Unnamed: 0", axis=1)
+
+# region State
+class steamState(rx.State):
+    
+    @rx.var
+    def st_df(self) -> pd.DataFrame:
+        st_df = steam_frame
+        return pk_df
+
+
 @rx.page(route="/steam", title="Steam")
 def steam() -> rx.Component:
     return rx.hstack(
