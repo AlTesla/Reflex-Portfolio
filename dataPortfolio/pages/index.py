@@ -42,7 +42,7 @@ def landing() -> rx.Component:
                 ),
                 width="64em"            
             ),
-            rx.heading("Experience", as_="h2"),
+            rx.heading("About me", as_="h2"),
             rx.text("""
                     As an aerospace engineer, I specialized in technology development, 
                     particularly within the drone (RPA) industry. This innovative field 
@@ -58,7 +58,7 @@ def landing() -> rx.Component:
 def summary() -> rx.Component:
     return rx.box(    
         rx.vstack(
-            rx.heading("About me", as_="h2"),
+            rx.heading("Experience", as_="h2"),
             rx.text(
                 """I'm an Aerospace Engineer and Data Analyst based in Tijuana, Mexico. 
                 I enjoy working on technology development and Data visualization projects.
