@@ -17,7 +17,7 @@ class steamState(rx.State):
     @rx.var
     def st_df(self) -> pd.DataFrame:
         st_df = steam_frame
-        return pk_df
+        return st_df
 
 
 @rx.page(route="/steam", title="Steam")
