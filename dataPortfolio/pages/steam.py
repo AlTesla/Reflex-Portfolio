@@ -20,8 +20,15 @@ class steamState(rx.State):
         return st_df
 
 
+def steam_content() -> rx.Component:
+    return rx.vstack(
+        rx.heading("Steam EDA"),
+        width= "64em"
+    )
+
 @rx.page(route="/steam", title="Steam")
 def steam() -> rx.Component:
     return rx.hstack(
         sidebar(),
+        steam_content(),
     )
