@@ -23,7 +23,7 @@ class steamState(rx.State):
 def steam_content() -> rx.Component:
     return rx.vstack(
         rx.heading("Steam EDA"),
-        rx.text("This an exploratory data analysis of Steam games")
+        rx.text("This an exploratory data analysis of Steam games"),
         width= "64em"
     )
 
