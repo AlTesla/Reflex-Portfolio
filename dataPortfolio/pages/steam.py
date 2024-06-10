@@ -19,6 +19,11 @@ class steamState(rx.State):
         st_df = steam_frame
         return st_df
 
+def steam_text() -> rx.Component:
+    return rx.text(
+        "this an exploratory data analysis of Steam games"
+    )
+
 
 def steam_content() -> rx.Component:
     return rx.vstack(
