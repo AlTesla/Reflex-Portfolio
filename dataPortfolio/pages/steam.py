@@ -4,6 +4,7 @@ from dataPortfolio.components.sidebar import sidebar
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+import styles.styles as style
 
 
 # region Data Frame
