@@ -20,6 +20,7 @@ class steamState(rx.State):
         st_df = steam_frame
         return st_df
 
+# region view
 def steam_text() -> rx.Component:
     return rx.text(
         "this an exploratory data analysis of Steam games"
@@ -32,7 +33,7 @@ def steam_content() -> rx.Component:
         rx.text("This an exploratory data analysis of Steam games"),
         width= "64em"
     )
-
+# region page
 @rx.page(route="/steam", title="Steam")
 def steam() -> rx.Component:
     return rx.hstack(
