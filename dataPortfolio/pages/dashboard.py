@@ -44,7 +44,7 @@ def items_view() -> rx.Component:
             "Python"
         ),
         dashboard_item(
-            "VBA-challenge",
+            "VBA Stock Market",
             "Challenge assigment for Data Analytics Bootcamp",
             "github",
             "https://github.com/AlTesla/VBA-challenge",
