@@ -6,6 +6,8 @@ from .fonts import Font, FontWeight
 
 # Constants 
 MAX_WIDTH = "80em"
+MID_WIDTH = "60em"
+MIN_WIDTH = "40em"
 
 
 STYLESHEETS = [

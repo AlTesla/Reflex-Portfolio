@@ -45,7 +45,8 @@ def items_view() -> rx.Component:
         ),
         dashboard_item(
             "VBA Stock Market",
-            "Challenge assigment for Data Analytics Bootcamp",
+            "Stock market data analysis using visual basic \
+             scripts on microsoft excel",
             "github",
             "https://github.com/AlTesla/VBA-challenge",
             "dotnet"    
