@@ -19,7 +19,14 @@ class steamState(rx.State):
     def st_df(self) -> pd.DataFrame:
         st_df = steam_frame
         return st_df
-
+    
+    
+    @rx.var
+    def st_cols(self) -> pd.DataFrame:
+        cols = steam_frame.columns
+        return cols
+    
+     
 # region view
 def steam_text() -> rx.Component:
     return rx.text(
