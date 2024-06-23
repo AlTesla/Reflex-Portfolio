@@ -1,5 +1,5 @@
 # This AlTeslaDataDev
-This my personal webpage
+I'm Alvaro Corona I was born and raised in Tijuana Mexico. I attended Baja California State University to obtain a bachellor's degree in AeroSpace Engineering. Additionally I earn a certification as a Data Analyst from the Monterrey Institute of Technology.
 
 
 # Content
